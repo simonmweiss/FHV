@@ -1,0 +1,7 @@
+C:\Daten\FHV\WISE22\Softwareprozesse und -qualität\FHV\out\WebApp.exe
+C:\Daten\FHV\WISE22\Softwareprozesse und -qualität\FHV\out\appsettings.Development.json
+C:\Daten\FHV\WISE22\Softwareprozesse und -qualität\FHV\out\appsettings.json
+C:\Daten\FHV\WISE22\Softwareprozesse und -qualität\FHV\out\WebApp.dll
+C:\Daten\FHV\WISE22\Softwareprozesse und -qualität\FHV\out\WebApp.deps.json
+C:\Daten\FHV\WISE22\Softwareprozesse und -qualität\FHV\out\WebApp.runtimeconfig.json
+C:\Daten\FHV\WISE22\Softwareprozesse und -qualität\FHV\out\WebApp.pdb
