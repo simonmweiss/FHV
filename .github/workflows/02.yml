@@ -14,10 +14,6 @@ jobs:
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.x'
-      - name: 'Login via Azure CLI'
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: 'Build and push image'
         uses: azure/docker-login@v1
         with:
@@ -26,5 +22,5 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
           dotnet publish ./WebApp -c Release -o out --no-self-contained
-          docker build . -t idi2020.azurecr.io/swewebapp:${{ github.sha }}
-          docker push idi2020.azurecr.io/swewebapp:${{ github.sha }}
+          docker build . -t idi2020.azurecr.io/simwei-webapp:${{ github.sha }}
+          docker push idi2020.azurecr.io/simwei-webapp:${{ github.sha }}
