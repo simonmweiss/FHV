@@ -1,0 +1,26 @@
+
+name: "02"
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+      - name: 'Build and push image'
+        uses: azure/docker-login@v1
+        with:
+          login-server: idi2020.azurecr.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - run: |
+          dotnet publish ./WebApp -c Release -o out --no-self-contained
+          docker build . -t idi2020.azurecr.io/simwei-webapp:${{ github.sha }}
+          docker push idi2020.azurecr.io/simwei-webapp:${{ github.sha }}
