@@ -1,0 +1,24 @@
+
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - shell: bash
+        run: |
+          expr 1 + 1 > Result.txt
+      - name: Upload output file
+        uses: actions/upload-artifact@v3
+        with:
+          name: Result.txt
+          path: Result.txt
