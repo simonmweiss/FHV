@@ -21,10 +21,10 @@ jobs:
       - name: 'Build and push image'
         uses: azure/docker-login@v1
         with:
-          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          login-server: idi2020.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
           dotnet publish ./WebApp -c Release -o out --no-self-contained
-          docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
-          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
+          docker build . -t idi2020.azurecr.io/swewebapp:${{ github.sha }}
+          docker push idi2020.azurecr.io/swewebapp:${{ github.sha }}
